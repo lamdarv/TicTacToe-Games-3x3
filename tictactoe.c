@@ -1,16 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+char square[10] = { 'o', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+
 //modul board tictactoe 3x3
 void ShowBoard(){
-	char square[10] = { 'o', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+	int skor = 0;
 	
 	system("cls");
-    printf("====================================\n");
+    	printf("====================================\n");
 	printf("             TIC TAC TOE            \n");
 	printf("====================================\n");
 
-    printf("You (X)  -  Komputer  (O)\n\n\n");
+    printf("You (X)  -  Komputer  (O)  -  Skor : %d\n\n\n", &skor);
 
 
     printf("     |     |     \n");
@@ -29,9 +31,88 @@ void ShowBoard(){
     printf("     |     |     \n\n");
 }
 
+//modul pergantian nomor papan dengan bidak X
+int NumberChange(){
+	int player = 1, i, pilih, skor = 0;
+	char bidak = 'X';
 
+	do 
+	{
+		ShowBoard();
+		printf("Pilih nomor papan : ");	
+		scanf("%d", &pilih);
+		
+		if (pilih == 1 && square[1] == '1'){
+	         square[1] = bidak;        
+	   } else if (pilih == 2 && square[2] == '2'){
+	            square[2] = bidak;
+	   } else if (pilih == 3 && square[3] == '3'){
+	            square[3] = bidak;
+	   } else if (pilih == 4 && square[4] == '4'){
+	            square[4] = bidak;
+	   } else if (pilih == 5 && square[5] == '5'){
+	            square[5] = bidak;
+	   } else if (pilih == 6 && square[6] == '6'){
+	            square[6] = bidak;
+	   } else if (pilih == 7 && square[7] == '7'){
+	            square[7] = bidak;
+	   } else if (pilih == 8 && square[8] == '8'){
+	            square[8] = bidak;
+	   } else if (pilih == 9 && square[9] == '9'){
+	            square[9] = bidak;
+	        } else {
+	            printf("Invalid move ");
+				player--;
+				getch();
+			}
+		i = CekWin();
+		player++;
+	} while(skor == 10); 
 
+	ShowBoard();
+	if(skor == 10){
+		printf("==>\aPlayer %d menang ", --player);
+	} else {
+		printf("==>\aGame draw");
+	}
+    getch();
+	return 0;
+}
 
+int CekWin()
+{
+    if (square[1] == square[2] && square[2] == square[3])
+        return 1;
+        
+    else if (square[4] == square[5] && square[5] == square[6])
+        return 1;
+        
+    else if (square[7] == square[8] && square[8] == square[9])
+        return 1;
+        
+    else if (square[1] == square[4] && square[4] == square[7])
+        return 1;
+        
+    else if (square[2] == square[5] && square[5] == square[8])
+        return 1;
+        
+    else if (square[3] == square[6] && square[6] == square[9])
+        return 1;
+        
+    else if (square[1] == square[5] && square[5] == square[9])
+        return 1;
+        
+    else if (square[3] == square[5] && square[5] == square[7])
+        return 1;
+        
+    else if (square[1] != '1' && square[2] != '2' && square[3] != '3' &&
+        square[4] != '4' && square[5] != '5' && square[6] != '6' && square[7] 
+        != '7' && square[8] != '8' && square[9] != '9')
+
+        return 0;
+    else
+        return  - 1;
+}
 
 
 //modul ShowMainMenu
@@ -49,7 +130,6 @@ void ShowMainMenu(){
 		printf("Masukan Pilihan(1,2,3) :");
 
 }
-
 
 //modul input player name
 void InputPlayerName(){
@@ -98,6 +178,7 @@ int main()
 			
 			ShowBoard(); //Modul Showboard 3x3
 			//modul Minimax
+			NumberChange();
 			
 		} else if (mainmenu == 2){
 			//modul highscore
