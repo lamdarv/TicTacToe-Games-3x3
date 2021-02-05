@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 char square[10] = { 'o', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+char nama[50];
 
 //modul board tictactoe 3x3
 void ShowBoard(){
@@ -12,7 +13,7 @@ void ShowBoard(){
 	printf("             TIC TAC TOE            \n");
 	printf("====================================\n");
 
-    printf("You (X)  -  Komputer  (O)  -  Skor : %d\n\n\n", &skor);
+    printf("%s (X)  -  Komputer  (O)  -  Skor : %d\n\n\n", nama, skor);
 
 
     printf("     |     |     \n");
@@ -134,7 +135,6 @@ void ShowMainMenu(){
 //modul input player name
 void InputPlayerName(){
 	system("cls");
-	char nama[50];
 	
 		printf("====================================\n");
 		printf("             TIC TAC TOE            \n");
