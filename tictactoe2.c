@@ -12,9 +12,9 @@ int BonusPoin(int a, int b);
 
 //modul board tictactoe 3x3
 void ShowBoard(){
-	
+
 	system("cls");
-    printf("====================================\n");
+	printf("====================================\n");
 	printf("             TIC TAC TOE            \n");
 	printf("====================================\n");
 
@@ -42,16 +42,16 @@ void ShowBoard(){
 int NumberChange(){
 	int i,j, pilih;
 	char bidak = 'X';
-	
+
 	do 
 	{
 		ShowBoard();
-		
+
 		if(player % 2 != 0){
-	
+
 			printf("Pilih nomor papan : ");	
 			scanf("%d", &pilih);
-			
+
 			if (pilih == 1 && square[1] == '1'){
 		         square[1] = bidak;        
 		   } else if (pilih == 2 && square[2] == '2'){
@@ -87,33 +87,34 @@ int NumberChange(){
 			}
 			player++;
 		}
-		
+	} while(i == -1); 
+
 		if(i == 1){ //Kondisi jika Player 1 menang
-		skorplayer++;
-		FirstBoard(); //kembali ke papan awal
-		player = 1;
-		i = -1;	
+			skorplayer++;
+			FirstBoard(); //kembali ke papan awal
+			player = 1;
+			i = -1;	
+		} else { //KOndisi jika seri
+			FirstBoard();
+			NumberChange();
 		}
-		
+
 	//Modul BonusPoin	
 		a=skorplayer;
 		b=skorbot;
 		BonusPoin(a,b);
-		
+
 	//ShowPlayerWin
 		if(skorplayer ==10){
 			system("cls");
 			printf("Selamat %s menang dalam permainan ini!", nama);
 			i=2;
-			
+
 		} else if(skorbot == 10){
 			system("cls");
 			printf("Selamat %s kalah dalam permainan ini!", nama);
 			i=2;	
 		}
-			
-	} while(i == -1); 
-
     getch();
 	return 0;
 }
@@ -126,7 +127,7 @@ int BonusPoin(int a, int b){
 		} else{
 			maks = b;
 		}
-				
+
 		if(maks == 2){
 			if(maks == skorplayer){
 				skorplayer+=3;
@@ -156,28 +157,28 @@ int CekWin()
 {
     if (square[1] == square[2] && square[2] == square[3])
         return 1;
-        
+
     else if (square[4] == square[5] && square[5] == square[6])
         return 1;
-        
+
     else if (square[7] == square[8] && square[8] == square[9])
         return 1;
-        
+
     else if (square[1] == square[4] && square[4] == square[7])
         return 1;
-        
+
     else if (square[2] == square[5] && square[5] == square[8])
         return 1;
-        
+
     else if (square[3] == square[6] && square[6] == square[9])
         return 1;
-        
+
     else if (square[1] == square[5] && square[5] == square[9])
         return 1;
-        
+
     else if (square[3] == square[5] && square[5] == square[7])
         return 1;
-        
+
     else if (square[1] != '1' && square[2] != '2' && square[3] != '3' &&
         square[4] != '4' && square[5] != '5' && square[6] != '6' && square[7] 
         != '7' && square[8] != '8' && square[9] != '9')
@@ -198,13 +199,13 @@ int Minimax(int x){
 					}
 				}
 				break; 
-							
+
 	}
 }
 
 //modul ShowMainMenu
 void ShowMainMenu(){
-	
+
 		printf("====================================\n");
 		printf("             TIC TAC TOE            \n");
 		printf("====================================\n");
@@ -214,26 +215,26 @@ void ShowMainMenu(){
 		printf("            [2]HIGHSCORE   	        \n");
 		printf("              [3]EXIT               \n");
 		printf("\n");
-		printf("Masukan Pilihan(1,2,3) :");
+		printf("Masukan Pilihan(1,2,3) : ");
 
 }
 
 //modul input player name
 void InputPlayerName(){
 	system("cls");
-	
+
 		printf("====================================\n");
 		printf("             TIC TAC TOE            \n");
 		printf("====================================\n");
-		printf("Masukkan Nama Player (Hanya 1 kata) :");
+		printf("Masukkan Nama Player (Hanya 1 kata) : ");
 		scanf("%s", &nama);
-	
+
 }
 
 //modul SelectLevel
 void SelectLevel(){
 	system("cls");
-		
+
 		printf("====================================\n");
 		printf("             TIC TAC TOE            \n");
 		printf("====================================\n");
@@ -241,9 +242,9 @@ void SelectLevel(){
 		printf("              [1]EASY               \n");
 		printf("              [2]MEDIUM   	        \n");
 		printf("              [3]HARD               \n\n");
-		printf("Masukkan Pilihan(1,2,3) = ");
+		printf("Masukkan Pilihan(1,2,3) : ");
 		scanf("%d", &lvl);
-	
+
 }
 
 
@@ -251,14 +252,14 @@ int main()
 {
 	//Deklarasi
 	int mainmenu;
-	
+
 	//Proses
 	ShowMainMenu();
 		scanf("%d", &mainmenu);
 		system("cls");
 		if (mainmenu == 1){
 			InputPlayerName(); //Modul Input Player Name
-	
+
 			SelectLevel(); //Modul Select Level
 			switch(lvl){
 				case 1 : //Minimax level 1
@@ -273,9 +274,9 @@ int main()
 				ShowBoard(); //Modul Showboard 3x3
 							//modul Minimax
 				NumberChange(); //Modul untuk mengganti angka pada papan dengan bidak
-			
-				
-				
+
+
+
 		} else if (mainmenu == 2){
 			//modul highscore
 		} else if (mainmenu == 3){
@@ -283,4 +284,3 @@ int main()
 		}
 	return 0;
 }
-
