@@ -5,14 +5,14 @@
 char square[10] = { 'o', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
 char nama[50];
 char bidak = 'X', bidak2 = 'O';
-int lvl, point, player = 1, skorplayer = 0, skorbot=0, JumlahSeri= 0, maks,a,b;
+int lvl, point, player = 1, skorplayer = 0, skorbot=0, JumlahSeri= 0, maks, a, b;
 
 void ShowMainMenu();
 void InputPlayerName();
 void SelectLevel();
 void ShowBoard();
 int NumberChange();
-int BonusPoin(int skorplayer, int skorbot);
+int BonusPoin(int a, int b);
 void FirstBoard();
 int CekWin();
 int Minimax(int x);
@@ -33,7 +33,9 @@ int main(){
 				case 1 : //Minimax level 1
 					ShowBoard(); //Modul Showboard 3x3
 					NumberChange(); //Modul untuk mengganti angka pada papan dengan bidak
-					CekWin();  //Minimax level 2
+					CekWin(); 
+					break;
+				case 2 : //Minimax Level 2
 					break;
 				case 3 : //Minimax level 3
 					break;
@@ -225,21 +227,21 @@ void ShowPlayerWinOrLose(){
 }
 
 //Modul untuk menambahkan bonus poin
-int BonusPoin(int skorplayer, int skorbot){
-	if(a==skorplayer || skorbot == 2){ //Kondisi jika player atau bot mendapatkan poin 2 terlebih dahulu		
-		if(skorplayer>skorbot){
-			maks = skorplayer;
+int BonusPoin(int a, int b){
+	if(a == 2 || b == 2){ //Kondisi jika player atau bot mendapatkan poin 2 terlebih dahulu		
+		if(a>b){
+			maks = a;
 		} else{
-			maks = skorbot;
+			maks = b;
 		}
 				
 		if(maks == 2){
-			if(maks == skorplayer){
+			if(maks == a){
 				skorplayer+=3;
 				return skorplayer;
-			} else if(maks == skorbot){
+			} else if(maks == b){
 				skorbot+=3;
-				return skorplayer;
+				return skorbot;
 			}
 		}
 	}
@@ -307,18 +309,5 @@ int Minimax(int x){
 							
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
