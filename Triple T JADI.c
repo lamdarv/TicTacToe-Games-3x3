@@ -150,7 +150,7 @@ void ShowBoard(){
 
     printf("     |     |     \n\n");
     
-    if(lvl == 3){
+    if(lvl == 3 || lvl == 2){
     	printf("Giliran pertama harus menginput angka 3!\n");
     	printf("Jika tidak, maka program ini akan otomatis menginput X di angka 3!\n");
 	}
@@ -600,7 +600,7 @@ int Minimax(int x){
 			  	}	
 			} else if(bagD==true){
 				if(bagian >= 2 && square[7]==bidak){
-				square[4]==bidak2;
+				square[4]=bidak2;
 				if(bagian >= 3 && square[6]==bidak){
 					square[9]=bidak2;
 					if(bagian >= 4 && square[1]==bidak){
@@ -780,6 +780,7 @@ int ShowAbout(){
 	printf("Dosen Ani Rahmani, S.Si., M.T,      \n");
 	printf("Asri Maspupah,S.ST., M.T,           \n");
 	printf("Lukmannul Hakim, S.Kom., M.T      \n\n");
+	
 	printf("Ketik angka 1 untuk kembali ke mainmenu :");
 	scanf("%d", &angka);
 	
