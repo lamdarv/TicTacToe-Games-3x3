@@ -3,7 +3,6 @@
 #include <conio.h>
 #include <string.h>
 #include <stdbool.h>
-#include <windows.h>
 
 char square[10] = { 'o', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
 char bidak = 'X', bidak2 = 'O';
@@ -13,7 +12,8 @@ bool bag = false, bagA = false, bagB = false, bagC = false, bagD = false, bagE =
 //Main Menu
 void ShowMainMenu();
 void PlayGame();
-void ShowHighscore();
+int ShowHighscore();
+int ShowHelp();
 int ShowAbout();
 
 //Modul start 
@@ -61,8 +61,16 @@ int main(){
 			PlayGame(); //modul mulai permainan
 		} else if (mainmenu == 2){
 			ShowHighscore();//modul highscore
+			if(angka == 1){
+				system("cls");
+				main();
+			}
 		} else if(mainmenu == 3){
-			return 0; //modul help
+			ShowHelp(); //modul help
+			if(angka == 1){
+				system("cls");
+				main();
+			}
 		} else if(mainmenu == 4){
 			ShowAbout(); //modul about
 			if(angka==1){
@@ -90,7 +98,7 @@ void ShowMainMenu(){
 		printf("              [4]ABOUT              \n");
 		printf("              [5]EXIT               \n");
 		printf("\n");
-		printf("Masukan Pilihan(1,2,3) : ");
+		printf("Masukan Pilihan(1,2,3,4,5) : ");
 
 }
 
@@ -160,8 +168,8 @@ int AmbilData() {
 	//  Mengambil data dari file highscore yang sudah disimpan dari modul SaveData
 	int n = 0;
 	FILE *fptr;
-	fptr = fopen("Highscore.txt", "rb");
-	while(fread(&list[n], sizeof(DataHighscore), 1, fptr) == 1) n++;
+	fptr = fopen("Highscore.dat", "rb");
+	while(fread(&list[n], sizeof(list[n]), 1, fptr) == 1) n++;
 	fclose(fptr);
 	return n;
 }
@@ -180,21 +188,21 @@ void SortHighscore(int n){
 }	
 void SaveData(){
 	
-	/* Memindahkan data pemain ke data highscore */
+	//Memindahkan data pemain ke data highscore 
 	strcpy(data.nama, pemain.nama);
 	data.skor = pemain.skor;
 
-	/* Tulis data ke dalam file */
+	//Tulis data ke dalam file 
 	FILE *fptr; 
-	fptr = fopen("Highscore.txt", "ab");
-	fwrite(&data, sizeof(DataHighscore), 1, fptr);
+	fptr = fopen("Highscore.dat", "ab");
+	fwrite(&data, sizeof(data), 1, fptr);
 	fclose(fptr);
 }
 
-void ShowHighscore(){
+int ShowHighscore(){
 	int i, n;
 	FILE*fptr;
-	fptr = fopen("Highscore.txt", "rb");
+	fptr = fopen("Highscore.dat", "rb");
 	n = AmbilData();
 	SortHighscore(n);
 
@@ -212,6 +220,10 @@ void ShowHighscore(){
 		printf("\n");
 	fclose(fptr);
 	}
+	printf("\n\nKetik angka 1 untuk kembali ke mainmenu : ");
+	scanf("%d", &angka);
+
+	return angka;
 }
 
 
@@ -426,17 +438,6 @@ int ShowPlayerWinOrLose(){
 	} else if(skorbot == 10){;
 		printf("\aMaaf %s kalah dalam permainan ini, jangan menyerah!\n\n", pemain.nama);	
 	}
-
-	printf("Tekan 1 untuk kembali ke Main Menu\n");
-	printf("Masukkan pilihan : ");
-	scanf("%d", &pilih);
-	if(pilih == 1){
-		system("cls");
-		main();
-	} else {
-		return 0;
-	}
-	
 }
 
 //Modul untuk menambahkan bonus poin
@@ -760,6 +761,24 @@ int Minimax(int x){
 		break;	
 		}
 	}
+}
+
+//Modul untuk menjelaskan peraturan dan tata cara permainan
+int ShowHelp(){
+	char help[300];
+	FILE *fp;
+
+	system("mode 80,45");
+	fp = fopen("Help.txt","rb");
+	while(fgets(help, sizeof(help), fp)){
+		printf("%s", help);
+	}
+	fclose(fp);
+	
+	printf("\n\nKetik angka 1 untuk kembali ke mainmenu : ");
+	scanf("%d", &angka);
+
+	return angka;
 }					
 	
 //Modul untuk menampilkan halaman about
@@ -781,9 +800,8 @@ int ShowAbout(){
 	printf("Asri Maspupah,S.ST., M.T,           \n");
 	printf("Lukmannul Hakim, S.Kom., M.T      \n\n");
 	
-	printf("Ketik angka 1 untuk kembali ke mainmenu :");
+	printf("Ketik angka 1 untuk kembali ke mainmenu : ");
 	scanf("%d", &angka);
 	
 	return angka;
 }
-
