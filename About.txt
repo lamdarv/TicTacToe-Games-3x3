@@ -1,0 +1,9 @@
+		      ABOUT
+
+Permainan ini dikembangkan oleh mahasiswa D4 Teknik 
+Informatika Semester 1 Tahun 2020/2021, yaitu Lamda 
+Richo Vanjaya Sumaryadi dan Fiora Berliana Putri.
+
+Permainan ini bertujuan untuk memenuhi tugas besar 
+di bawah bimbingan Dosen Ani Rahmani, S.Si., M.T, 
+Asri Maspupah,S.ST., M.T, Lukmannul Hakim, S.Kom., M.T.
