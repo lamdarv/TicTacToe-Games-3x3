@@ -1,22 +1,48 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
+#include <string.h>
+#include <windows.h>
 
 char square[10] = { 'o', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-char nama[50];
 char bidak = 'X', bidak2 = 'O';
-int lvl, point, player = 1, skorplayer = 0, skorbot=0, JumlahSeri= 0, maks, a, b;
+int lvl, point, player = 1, skorbot=0, JumlahSeri= 0, maks, a, b;
 
+//Main Menu
 void ShowMainMenu();
+void PlayGame();
+void ShowHighscore();
+
+//Modul start 
 void InputPlayerName();
 void SelectLevel();
 void ShowBoard();
+
+//Modul Highscore
+int AmbilData();
+void SortHighscore();
+void SaveData();
+
+//Modul saat bermain
 int NumberChange();
 int BonusPoin(int a, int b);
 void FirstBoard();
 int CekWin();
 int Minimax(int x);
-void ShowPlayerWinOrLose();
+int ShowPlayerWinOrLose();
+
+
+typedef struct{
+	char nama[50];
+	int skor;
+} Player;
+Player pemain;
+
+typedef struct{
+	char nama[50];
+	int skor;
+} DataHighscore;
+DataHighscore data, list[50], temp;
 
 int main(){
 	//Deklarasi
@@ -27,22 +53,9 @@ int main(){
 		scanf("%d", &mainmenu);
 		system("cls");
 		if (mainmenu == 1){
-			InputPlayerName(); // Input Player Name
-			SelectLevel(); //Modul Select Level
-			switch(lvl){
-				case 1 : //Minimax level 1
-					ShowBoard(); //Modul Showboard 3x3
-					NumberChange(); //Modul untuk mengganti angka pada papan dengan bidak
-					CekWin(); 
-					break;
-				case 2 : //Minimax Level 2
-					break;
-				case 3 : //Minimax level 3
-					break;
-			}
-			
+			PlayGame(); //modul mulai permainan
 		} else if (mainmenu == 2){
-			//modul highscore
+			ShowHighscore();//modul highscore
 		} else if (mainmenu == 3){
 			return 0; //exit
 		}
@@ -61,7 +74,7 @@ void ShowMainMenu(){
 		printf("            [2]HIGHSCORE   	        \n");
 		printf("              [3]EXIT               \n");
 		printf("\n");
-		printf("Masukan Pilihan(1,2,3) :");
+		printf("Masukan Pilihan(1,2,3) : ");
 
 }
 
@@ -72,8 +85,8 @@ void InputPlayerName(){
 		printf("====================================\n");
 		printf("             TIC TAC TOE            \n");
 		printf("====================================\n");
-		printf("Masukkan Nama Player (Hanya 1 kata) :");
-		scanf("%s", &nama);
+		printf("Masukkan Nama Player (Hanya 1 kata) : ");
+		scanf("%s", &pemain.nama);
 	
 }
 
@@ -101,8 +114,8 @@ void ShowBoard(){
 	printf("             TIC TAC TOE            \n");
 	printf("====================================\n");
 
-    printf("%s (X)  -  Komputer  (O)  \n", nama);
-    printf("Skor : %d - %d   \n", skorplayer, skorbot);
+    printf("%s (X)  -  Komputer  (O)  \n", pemain.nama);
+    printf("Skor : %d - %d   \n", pemain.skor, skorbot);
     printf("Jumlah Seri : %d  \n\n\n", JumlahSeri);
 
 
@@ -122,10 +135,87 @@ void ShowBoard(){
     printf("     |     |     \n\n");
 }
 
+int AmbilData() {
+	//  Mengambil data dari file highscore yang sudah disimpan dari modul SaveData
+	int n = 0;
+	FILE *fptr;
+	fptr = fopen("Highscore.txt", "rb");
+	while(fread(&list[n], sizeof(DataHighscore), 1, fptr) == 1) n++;
+	fclose(fptr);
+	return n;
+}
+
+void SortHighscore(int n){
+	int i, j ;
+	for(i = 0; i < n; i++){
+		for(j = i+1; j < n; j++){
+			if(list[i].skor < list[j].skor){
+				temp = list[i];
+				list[i] = list[j];
+				list[j] = temp;
+			}
+		}
+	}
+}	
+void SaveData(){
+	
+	/* Memindahkan data pemain ke data highscore */
+	strcpy(data.nama, pemain.nama);
+	data.skor = pemain.skor;
+
+	/* Tulis data ke dalam file */
+	FILE *fptr; 
+	fptr = fopen("Highscore.txt", "ab");
+	fwrite(&data, sizeof(DataHighscore), 1, fptr);
+	fclose(fptr);
+}
+
+void ShowHighscore(){
+	int i, n;
+	FILE*fptr;
+	fptr = fopen("Highscore.txt", "rb");
+	n = AmbilData();
+	SortHighscore(n);
+
+	printf("====================================\n");
+	printf("             TIC TAC TOE            \n");
+	printf("====================================\n");
+	printf("             HIGHSCORE              \n\n");
+	printf("Nama Player\tSkor");
+	printf("\n");
+	for(i = 0; i < n; i++){
+		printf("%s", list[i].nama);
+		printf("\t\t");
+		printf("%d", list[i].skor);
+		printf("\t\t");
+		printf("\n");
+	fclose(fptr);
+	}
+}
+
+
+void PlayGame(){
+			
+	InputPlayerName(); // Input Player Name
+	SelectLevel(); //Modul Select Level
+	switch(lvl){
+		case 1 : //Minimax level 1
+			ShowBoard(); //Modul Showboard 3x3
+			NumberChange(); //Modul untuk mengganti angka pada papan dengan bidak
+			CekWin(); 
+			break;
+		case 2 : //Minimax Level 2
+			break;
+		case 3 : //Minimax level 3
+			break;
+	}
+	SaveData();
+}
 //modul pergantian nomor papan dengan bidak X
 int NumberChange(){
 	int i,j, pilih;
 	char bidak = 'X';
+	pemain.skor = 0;
 	
 	do 
 	{
@@ -173,7 +263,7 @@ int NumberChange(){
 		}
 		
 		if(i == 1){ //Kondisi jika Player 1 menang
-		skorplayer++;
+		pemain.skor++;
 		FirstBoard(); //kembali ke papan awal
 		player = 1; 
 		i = -1;	
@@ -190,11 +280,11 @@ int NumberChange(){
 		}
 		
 		//Modul BonusPoin	
-		BonusPoin(skorplayer,skorbot);
+		BonusPoin(pemain.skor,skorbot);
 		
 		//ShowPlayerWin
-		if(skorplayer == 10 || skorbot == 10){
-			ShowPlayerWinOrLose();
+		if(pemain.skor == 10 || skorbot == 10){
+			ShowPlayerWinOrLose();	
 			i=2;
 		}
 			
@@ -205,25 +295,36 @@ int NumberChange(){
 }
 
 //Modul untuk menampilkan siapa yang menang atau kalah
-void ShowPlayerWinOrLose(){
+int ShowPlayerWinOrLose(){
+	int pilih;
+	system("cls");
+
 	if(JumlahSeri == 3){
-		system("cls");
-		if(skorplayer > skorbot){
-			printf("Selamat %s menang dalam permainan ini!", nama);
-		} else if(skorplayer < skorbot){
-			printf("Selamat %s kalah dalam permainan ini!", nama);	
-		} else if(skorplayer == skorbot){
-			printf("Selamat %s mendapatkan hasil seri dalam permainan ini!", nama);	
+		if(pemain.skor > skorbot){
+			printf("\aSelamat %s menang dalam permainan ini!\n\n", pemain.nama);
+		} else if(pemain.skor < skorbot){
+			printf("\aMaaf %s kalah dalam permainan ini, jangan menyerah!\n\n", pemain.nama);	
+		} else if(pemain.skor == skorbot){
+			printf("\aSelamat %s mendapatkan hasil seri dalam permainan ini!\n\n", pemain.nama);	
 		}
 	}
 	
-	if(skorplayer ==10){
-			system("cls");
-			printf("Selamat %s menang dalam permainan ini!", nama);
-		} else if(skorbot == 10){
-			system("cls");
-			printf("Selamat %s kalah dalam permainan ini!", nama);	
-		}
+	if(pemain.skor == 10){
+		printf("\aSelamat %s menang dalam permainan ini!\n\n", pemain.nama);
+	} else if(skorbot == 10){;
+		printf("\aMaaf %s kalah dalam permainan ini, jangan menyerah!\n\n", pemain.nama);	
+	}
+
+	printf("Tekan 1 untuk kembali ke Main Menu\n");
+	printf("Masukkan pilihan : ");
+	scanf("%d", &pilih);
+	if(pilih == 1){
+		system("cls");
+		main();
+	} else {
+		return 0;
+	}
+	
 }
 
 //Modul untuk menambahkan bonus poin
@@ -237,8 +338,8 @@ int BonusPoin(int a, int b){
 				
 		if(maks == 2){
 			if(maks == a){
-				skorplayer+=3;
-				return skorplayer;
+				pemain.skor+=3;
+				return pemain.skor;
 			} else if(maks == b){
 				skorbot+=3;
 				return skorbot;
@@ -292,7 +393,7 @@ int CekWin(){
 
         return 0;
     else
-        return  - 1;
+        return -1;
 }
 
 //modul Minimax
@@ -309,5 +410,3 @@ int Minimax(int x){
 							
 	}
 }
-
-
