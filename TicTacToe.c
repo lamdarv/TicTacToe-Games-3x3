@@ -233,19 +233,16 @@ void PlayGame(){
 	SelectLevel(); //Modul Select Level
 	switch(lvl){
 		case 1 : //Minimax level 1
-			ShowBoard(); //Modul Showboard 3x3
 			NumberChange(); //Modul untuk mengganti angka pada papan dengan bidak
 			system("cls");
 			main();
 			break;
 		case 2 : //Minimax Level 2
-			ShowBoard(); //Modul Showboard 3x3
 			NumberChange(); //Modul untuk mengganti angka pada papan dengan bidak
 			system("cls");
 			main();
 			break;
 		case 3 : //Minimax level 3
-			ShowBoard(); //Modul Showboard 3x3
 			NumberChange(); //Modul untuk mengganti angka pada papan dengan bidak
 			system("cls");
 			main();
@@ -399,6 +396,10 @@ int NumberChange(){
 				i = -1;
 			} else if(JumlahSeri == 3){
 				ShowPlayerWinOrLose();
+				printf("\n\nKetik angka 1 untuk kembali ke mainmenu : ");
+				scanf("%d", &angka);
+
+				return angka;
 			}
 			
 		}
@@ -409,7 +410,9 @@ int NumberChange(){
 		//ShowPlayerWin
 		if(pemain.skor == 10 || skorbot == 10){
 			ShowPlayerWinOrLose();
-			i=2;
+			printf("\n\nKetik angka 1 untuk kembali ke mainmenu : ");
+			scanf("%d", &angka);
+			return angka;
 		}
 			
 	} while(i == -1); 
@@ -438,6 +441,7 @@ int ShowPlayerWinOrLose(){
 	} else if(skorbot == 10){;
 		printf("\aMaaf %s kalah dalam permainan ini, jangan menyerah!\n\n", pemain.nama);	
 	}
+	
 }
 
 //Modul untuk menambahkan bonus poin
