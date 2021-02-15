@@ -55,6 +55,8 @@ int main(){
 	
 	//Proses
 	ShowMainMenu();
+		printf("\n\nMasukkan angka yang sesuai!\n");
+		printf("Jika tidak, program akan berakhir\n");
 		scanf("%d", &mainmenu);
 		system("cls");
 		if (mainmenu == 1){
@@ -600,7 +602,7 @@ int Minimax(int x){
 						square[4]==bidak2; //Sengaja kasih kesempatan biar player menang
 					}
 			    } else if(bagian >= 3 && square[1]=='1'){
-					square[1]==bidak2; //AI Win
+					square[1]=bidak2; //AI Win
 				}
 			  	}	
 			} else if(bagD==true){
@@ -613,7 +615,7 @@ int Minimax(int x){
 					} else if(bagian >= 4 && square[2]==bidak){
 						square[8]=bidak2; //Sengaja kasih kesempatan biar player menang
 					} else if(bagian >=4 && square[8]==bidak){
-						square[2]==bidak2; //Sengaja kasih kesempatan biar player menang
+						square[2]=bidak2; //Sengaja kasih kesempatan biar player menang
 					}
 				} else if(bagian >= 3 && square[6]=='6'){
 					square[6]=bidak2; //AI Win
@@ -713,12 +715,12 @@ int Minimax(int x){
 					 	square[8]=bidak2; //AI Win
 					}
 			    } else if(bagian >= 3 && square[1]=='1'){
-					square[1]==bidak2; //AI Win
+					square[1]=bidak2; //AI Win
 				}
 			  	}	
 			} else if(bagD==true){
 				if(bagian >= 2 && square[7]==bidak){
-				square[4]==bidak2;
+				square[4]=bidak2;
 				if(bagian >= 3 && square[6]==bidak){
 					square[9]=bidak2;
 					if(bagian >= 4 && square[1]==bidak){
