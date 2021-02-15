@@ -38,6 +38,6 @@ papan untuk menempatkan bidak nya.
 pada level Medium dan Hard, komputer diberi kecerdasan untuk menghalangi 
 jalan pemain untuk membuat pola lurus dan komputer juga diberi kecerdasan 
 untuk memenangkan permainan ini.
-5. Permainan akan berakhir saat terjadi 3 kali seri atau sudah ada player 
+4. Permainan akan berakhir saat terjadi 3 kali seri atau sudah ada player 
 yang mengumpulkan 10 poin.
-6. Setelah permainan berakhir, pemain / user dapat kembali lagi ke Main Menu.
+5. Setelah permainan berakhir, pemain / user dapat kembali lagi ke Main Menu.
