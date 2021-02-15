@@ -6,7 +6,7 @@
 
 char square[10] = { 'o', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
 char bidak = 'X', bidak2 = 'O';
-int lvl, point, player = 1, skorbot=0, JumlahSeri= 0, maks, a, b, bagian = 0, angka;
+int lvl, player = 1, skorbot=0, JumlahSeri= 0, maks, bagian = 0, angka;
 bool bag = false, bagA = false, bagB = false, bagC = false, bagD = false, bagE = false, bagF = false;
 
 //Main Menu
@@ -23,7 +23,7 @@ void ShowBoard();
 
 //Modul Highscore
 int AmbilData();
-void SortHighscore();
+void SortHighscore(int n);
 void SaveData();
 
 //Modul saat bermain
