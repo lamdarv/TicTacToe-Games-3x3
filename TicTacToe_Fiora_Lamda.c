@@ -554,6 +554,8 @@ int BotMove(int x){
 		 				square[9] = bidak2; //Sengaja kasih kesempatan biar player menang
 					} else if(bagian >= 4 && square[4]=='4' &&square[9]==bidak && square[7]=='7'){
 					 	square[4] = bidak2;	 //AI Win					 
+					} else if(bagian >=4 && square[7]==bidak){
+						square[9] = bidak2;
 					}
 				} else if( bagian >=3 && square[8]=='8'){
 				 	square[8] = bidak2;//AI Win
