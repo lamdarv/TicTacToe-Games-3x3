@@ -198,7 +198,7 @@ void SaveData(){
 	//Tulis data ke dalam file 
 	FILE *fptr; 
 	fptr = fopen("Highscore.dat", "ab");
-	fwrite(&data, sizeof(DatHighscore), 1, fptr);
+	fwrite(&data, sizeof(DataHighscore), 1, fptr);
 	fclose(fptr);
 }
 
