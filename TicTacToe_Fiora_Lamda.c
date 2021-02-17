@@ -170,7 +170,9 @@ int AmbilData() {
 	int n = 0;
 	FILE *fptr;
 	fptr = fopen("Highscore.dat", "rb");
-	while(fread(&list[n], sizeof(list[n]), 1, fptr) == 1) n++;
+	while(fread(&list[n], sizeof(DataHighscore), 1, fptr) == 1){
+		n++;
+	}	
 	fclose(fptr);
 	return n;
 }
@@ -196,7 +198,7 @@ void SaveData(){
 	//Tulis data ke dalam file 
 	FILE *fptr; 
 	fptr = fopen("Highscore.dat", "ab");
-	fwrite(&data, sizeof(data), 1, fptr);
+	fwrite(&data, sizeof(DatHighscore), 1, fptr);
 	fclose(fptr);
 }
 
