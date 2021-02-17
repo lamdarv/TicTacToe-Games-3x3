@@ -51,7 +51,6 @@ DataHighscore data, list[50], temp;
 int main(){
 	//Deklarasi
 	int mainmenu;
-	char huruf[50];
 	
 	//Proses
 	ShowMainMenu();
@@ -400,7 +399,9 @@ int NumberChange(){
 				ShowPlayerWinOrLose();
 				printf("\n\nKetik angka 1 untuk kembali ke mainmenu : ");
 				scanf("%d", &angka);
-
+				FirstBoard();
+				JumlahSeri = -1;
+				pemain.skor = 0;
 				return angka;
 			}
 			
@@ -414,6 +415,8 @@ int NumberChange(){
 			ShowPlayerWinOrLose();
 			printf("\n\nKetik angka 1 untuk kembali ke mainmenu : ");
 			scanf("%d", &angka);
+			skorbot=0;
+			pemain.skor = 0;
 			return angka;
 		}
 			
