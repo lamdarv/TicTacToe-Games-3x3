@@ -401,7 +401,7 @@ int NumberChange(){
 				scanf("%d", &angka);
 				FirstBoard();
 				JumlahSeri = -1;
-				pemain.skor = 0;
+				skorbot=0;
 				return angka;
 			}
 			
@@ -416,7 +416,6 @@ int NumberChange(){
 			printf("\n\nKetik angka 1 untuk kembali ke mainmenu : ");
 			scanf("%d", &angka);
 			skorbot=0;
-			pemain.skor = 0;
 			return angka;
 		}
 			
