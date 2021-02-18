@@ -49,15 +49,6 @@ typedef struct{
 DataHighscore data, list[50], temp;
 
 int main(){
-/*
-Author :
-Deskripsi :
-Initial State :
-Final State :
-Version dan Tanggal :
-Parameter Input :
-Parameter Output :
-*/
 	//Deklarasi
 	int mainmenu;
 	
@@ -237,7 +228,8 @@ int ShowHighscore(){
 
 
 void PlayGame(){
-			
+	
+	system("mode 60,25");		
 	InputPlayerName(); // Input Player Name
 	SelectLevel(); //Modul Select Level
 	switch(lvl){
@@ -788,7 +780,7 @@ int ShowHelp(){
 	char help[300];
 	FILE *fp;
 
-	system("mode 80,50");
+	system("mode 100,51");
 	fp = fopen("Help.txt","rb");
 	while(fgets(help, sizeof(help), fp)){
 		printf("%s", help);
@@ -807,7 +799,7 @@ int ShowAbout(){
 	char about[300];
 	FILE *abt;
 	
-	system("mode 80,45");
+	system("mode 60,25");
 	abt = fopen("About.txt", "rb");
 	while(fgets(about, sizeof(about), abt)){
 		printf("%s", about);
