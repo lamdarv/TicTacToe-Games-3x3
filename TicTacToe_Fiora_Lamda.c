@@ -204,8 +204,6 @@ void SaveData(){
 
 int ShowHighscore(){
 	int i, n;
-	FILE*fptr;
-	fptr = fopen("Highscore.dat", "rb");
 	n = AmbilData();
 	SortHighscore(n);
 
@@ -221,7 +219,6 @@ int ShowHighscore(){
 		printf("%d", list[i].skor);
 		printf("\t\t");
 		printf("\n");
-	fclose(fptr);
 	}
 	printf("\n\nKetik angka 1 untuk kembali ke mainmenu : ");
 	scanf("%d", &angka);
@@ -237,21 +234,23 @@ void PlayGame(){
 	switch(lvl){
 		case 1 : //Minimax level 1
 			NumberChange(); //Modul untuk mengganti angka pada papan dengan bidak
+			SaveData();
 			system("cls");
 			main();
 			break;
 		case 2 : //Minimax Level 2
 			NumberChange(); //Modul untuk mengganti angka pada papan dengan bidak
+			SaveData();
 			system("cls");
 			main();
 			break;
 		case 3 : //Minimax level 3
 			NumberChange(); //Modul untuk mengganti angka pada papan dengan bidak
+			SaveData();
 			system("cls");
 			main();
 			break;
 	}
-	SaveData();
 }
 //modul pergantian nomor papan dengan bidak X
 int NumberChange(){
