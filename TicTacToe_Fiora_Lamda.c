@@ -49,6 +49,15 @@ typedef struct{
 DataHighscore data, list[50], temp;
 
 int main(){
+/*
+Author :
+Deskripsi :
+Initial State :
+Final State :
+Version dan Tanggal :
+Parameter Input :
+Parameter Output :
+*/
 	//Deklarasi
 	int mainmenu;
 	
