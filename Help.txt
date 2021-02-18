@@ -1,42 +1,44 @@
-						HELP
+				     HELP
+
 
 Sebelum masuk ke dalam aturan permainan dan cara bermain, ada hal yang perlu diketahui yaitu :
-Permainan ini merupakan permainan manusia vs komputer. Pemain 1 adalah manusia dan Pemain 2 adalah 
-komputer.
+Permainan ini merupakan permainan manusia vs komputer. Pemain 1 adalah manusia
+dan Pemain 2 adalah komputer.
 
-# Aturan Permainan #
-
+# Aturan Permainan # 
 Aturan permainan dalam permainan Tic Tac Toe kami adalah sebagai berikut :
 1. Pemain memiliki bidak X dan komputer memiliki bidak O.
-2. Pemain dapat giliran jalan terlebih dahulu, dan pemain diberi kebebasan untuk menempatkan bidak 
-milik nya pada suatu kotak sesuai keinginan, kecuali pada level Hard dan level Medium. Pada langkah
-pertama, pemain harus menempatkan bidaknya pada kotak nomor 3.
-3. Setelah pemain menempatkan bidak nya, kemudian giliran komputer untuk menempatkan bidaknya juga,
-begitu seterusnya secara bergantian.
-4. Pemain dan komputer akan berusaha menempatkan bidak masing-masing dengan membentuk sebuah pola 
-garis lurus, yaitu garis horizontal, vertikal atau diagonal.
-5. Jika pemain berhasil membentuk sebuah pola lurus terlebih dahulu sebelum komputer, maka pemain
-akan mendapat 1 poin, begitupun dengan komputer.
-6. Jika pemain lebih dahulu menghasilkan 2 poin, maka poin atau skornya akan ditambah 3, begitupun 
-dengan komputer.
+2. Pemain dapat giliran jalan terlebih dahulu, dan pemain diberi kebebasan untuk menempatkan 
+bidak milik nya pada suatu kotak sesuai keinginan, kecuali pada level Hard dan level medium. 
+Pada langkah pertama, pemain harus menempatkan bidaknya pada kotak nomor 3.
+3. Setelah pemain menempatkan bidak nya, kemudian giliran komputer untuk menempatkan bidaknya 
+juga, begitu seterusnya secara bergantian.
+4. Pemain dan komputer akan berusaha menempatkan bidak masing-masing dengan membentuk sebuah 
+pola garis lurus, yaitu garis horizontal, vertikal atau diagonal.
+5. Jika pemain berhasil membentuk sebuah pola garis lurus terlebih dahulu sebelum komputer, 
+maka pemain akan mendapat 1 poin, begitupun dengan komputer.
+6. Jika pemain lebih dahulu menghasilkan 2 poin, maka poin atau skornya akan ditambah 3, 
+begitupun dengan komputer.
 7. Baik pemain atau komputer, yang lebih dahulu mengumpulkan 10 poin, maka dia lah pemenangnya.
 8. Jika papan sudah terisi semua dan tidak ada pola lurus, maka permainan akan menghasilkan seri.
 9. Jika terjadi seri sebanyak 3 kali, maka permainan akan dihentikan dan pemenang dilihat dari 
 jumlah skor terakhir.
 
-# Cara Bermain #
-
+# Cara Bermain # 
 1. Tampilan yang pertama kali muncul saat pemain membuka game ini adalah main menu, terdapat 5 
 pilihan disana, yaitu ; Start, Highscore, Help, About, dan Exit. Pemain harus menginputkan angka 1 
 untuk bermain. 
-2. Setelah angka 1 diinputkan, tampilan akan berubah dan pemain diminta untuk menginputkan nama.
+2. Setelah angka 1 diinputkan, tampilan akan berubah menjadi tampilan untuk menginputkan nama pemain. 
+Pemain dapat mengisi nama apa saja dengan batasan 50 karakter.
 3. Sesudah mengisi nama, selanjutnya pemain diminta untuk memilih level. Terdapat 3 level, yaitu ; 
-Easy, Medium, dan Hard. Perbedaan 3 level ini adalah bagaimana kecerdasan dari komputer sebagai 
-musuh.
-4. Sesudah memilih level, maka papan permainan pun akan ditampilkan ke layar. 
-6. Pemain akan selalu memulai permainan terlebih dahulu. Lalu,komputer akan mulai bermain setelah
-pemain, dan terus bergantian sampai permainan berakhir.
-9. Setelah permainan berakhir, akan tampil ke layar berupa selamat jika pemain menang atau seri. 
-Sedangkan jika kalah, maka akan tampil ke layar berupa kata maaf.
-10.Setelah itu, pemain dapat kembali lagi ke Main Menu dengan menginput angka 1.
+Easy, Medium, dan Hard. Perbedaan 3 level ini adalah bagaimana kecerdasan dari komputer sebagai musuh.
+4. Sesudah memilih level, maka papan permainan pun akan ditampilkan ke layar. Pemain memiliki bidak X, 
+sedangkan komputer memiliki bidak O.
+5. Pemain akan selalu memulai permainan terlebih dahulu dengan memilih nomor (1-9) pada papan untuk 
+menempatkan bidak nya.
+6. Komputer akan mulai bermain setelah pemain.
+7. Permainan akan berakhir saat terjadi 3 kali seri atau sudah ada player yang mengumpulkan 10 poin.
+8. Setelah permainan berakhir, akan tampil ke layar berupa selamat jika pemain menang atau seri. Namun, 
+jika kalah, maka akan tampil ke layar berupa kata maaf.
+9. Setelah itu, pemain dapat kembali lagi ke Main Menu dengan menginput angka 1.
 

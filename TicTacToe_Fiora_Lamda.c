@@ -49,6 +49,13 @@ typedef struct{
 DataHighscore data, list[50], temp;
 
 int main(){
+/*
+Author : Lamda Richo Vanjaya Sumaryadi
+Deskripsi : Modul utama untuk menjalankan semua modul dalam program
+Initial State :Program belum berjalan
+Final State : Program berhenti
+Version dan Tanggal : 14.02.2021
+*/
 	//Deklarasi
 	int mainmenu;
 	
@@ -87,6 +94,13 @@ int main(){
 
 //modul ShowMainMenu
 void ShowMainMenu(){
+/*
+Author : Lamda Richo Vanjaya Sumaryadi
+Deskripsi : Menampilkan 3 pilihan main menu yaitu start, highscore, dan exit
+Initial State : Program belum berjalan
+Final State : Terlihat 5 pilihan menu di layar, yang dapat dipilih user untuk dijalankan
+Version dan Tanggal : 04.02.2021
+*/
 	
 		printf("====================================\n");
 		printf("             TIC TAC TOE            \n");
@@ -105,6 +119,13 @@ void ShowMainMenu(){
 
 //modul input player name
 void InputPlayerName(){
+/*
+Author : Lamda Richo Vanjaya Sumaryadi
+Deskripsi : Modul untuk menginputkan nama player 1 yang akan bermain dengan batasan 50 karakter
+Initial State : Variabel nama belum terisi
+Final State : Variabel nama sudah terisi
+Version dan Tanggal : 03.02.2021
+*/
 	system("cls");
 	
 		printf("====================================\n");
@@ -117,6 +138,13 @@ void InputPlayerName(){
 
 //modul SelectLevel
 void SelectLevel(){
+/*
+Author : Lamda Richo Vanjaya Sumaryadi
+Deskripsi : Akan tampil 3 pilihan level (easy, medium, hard)  pada layar dan user akan memilih satu level untuk bermain
+Initial State : Level belum terpilih
+Final State : Level sudah terpilih
+Version dan Tanggal : 04.02.2021
+*/
 	system("cls");
 		
 		printf("====================================\n");
@@ -133,6 +161,13 @@ void SelectLevel(){
 
 //modul board tictactoe 3x3
 void ShowBoard(){
+/*
+Author : Lamda Richo Vanjaya Sumaryadi
+Deskripsi : Modul untuk menampilkan papan 3x3 yang diisi angka 1-9 serta akan digunakan untuk bermain
+Initial State : Tampilan di layar masih berupa pilihan level
+Final State : Tampilan berubah menjadi papan bermain yang tiap kotaknya berisi angka 1 sampai 9.
+Version dan Tanggal : 03.02.2021
+*/
 	
 	system("cls");
     printf("====================================\n");
@@ -166,6 +201,14 @@ void ShowBoard(){
 }
 
 int AmbilData() {
+/*
+Author : Fiora Berliana Putri
+Deskripsi : Mengambil data dari file highscore yang sudah disimpan modul SaveData() 
+dan akan mengembalikan nilai n (banyaknya list dalam file highscore)
+Initial State : -
+Final State : -
+Version dan Tanggal : 14.02.2021
+*/
 	//  Mengambil data dari file highscore yang sudah disimpan dari modul SaveData
 	int n = 0;
 	FILE *fptr;
@@ -178,6 +221,13 @@ int AmbilData() {
 }
 
 void SortHighscore(int n){
+/*
+Author : Fiora Berliana Putri
+Deskripsi : Mengurutkan skor dari yang tertinggi sampai terendah untuk ditampilkan pada menu highscore
+Initial State : Urutan skor masih sesuai dengan player terakhir yang bermain
+Final State : Highscore sudah terurut 
+Version dan Tanggal : 14.02.2021
+*/
 	int i, j ;
 	for(i = 0; i < n; i++){
 		for(j = i+1; j < n; j++){
@@ -190,6 +240,13 @@ void SortHighscore(int n){
 	}
 }	
 void SaveData(){
+/*
+Author : Fiora Berliana Putri
+Deskripsi : Modul untuk menyimpan data nama dan skor player 1 ke dalam file highscore.
+Initial State : file highscore masih kosong
+Final State : file highscore sudah terisi
+Version dan Tanggal : 14.02.2021
+*/
 	
 	//Memindahkan data pemain ke data highscore 
 	strcpy(data.nama, pemain.nama);
@@ -203,6 +260,13 @@ void SaveData(){
 }
 
 int ShowHighscore(){
+/*
+Author : Fiora Berliana Putri
+Deskripsi : Menampilkan tampilan highscore di layar.
+Initial State : -
+Final State : -
+Version dan Tanggal : 14.02.2021
+*/
 	int i, n;
 	n = AmbilData();
 	SortHighscore(n);
@@ -228,7 +292,14 @@ int ShowHighscore(){
 
 
 void PlayGame(){
-		
+/*
+Author : Fiora Berliana Putri dan Lamda Richo Vanjaya Sumaryadi	
+Deskripsi : Modul induk dari beberapa modul saat permainan dimulai.
+Initial State : Tampilan layar masih berupa Main Menu.
+Final State : Permainan berakhir dan kembali ke Main Menu
+Version dan Tanggal : 13.02.2021
+*/
+	system("mode 60,25");	
 	InputPlayerName(); // Input Player Name
 	SelectLevel(); //Modul Select Level
 	switch(lvl){
@@ -254,6 +325,13 @@ void PlayGame(){
 }
 //modul pergantian nomor papan dengan bidak X
 int NumberChange(){
+/*
+Author : Fiora Berliana Putri dan Lamda Richo Vanjaya Sumaryadi
+Deskripsi : Modul yang digunakan untuk pergerakan dari player 1 pada permainan
+Initial State : Papan permainan masih berisi angka 1 sampai 9
+Final State : Papan permainan yang dipilih player 1 akan berubah menjadi bidak ‘X’
+Version dan Tanggal : 14.02.2021
+*/
 	int i,j,a, pilih;
 	char bidak = 'X';
 	pemain.skor=0;
@@ -428,6 +506,13 @@ int NumberChange(){
 
 //Modul untuk menampilkan siapa yang menang atau kalah
 int ShowPlayerWinOrLose(){
+/*
+Author : Lamda Richo Vanjaya Sumaryadi
+Deskripsi : Menampilkan ke layar status player 1, apakah menang, kalah, atau seri.
+Initial State : -
+Final State : -
+Version dan Tanggal : 14.02.2021
+*/
 	int pilih;
 	system("cls");
 
@@ -451,6 +536,13 @@ int ShowPlayerWinOrLose(){
 
 //Modul untuk menambahkan bonus poin
 int BonusPoin(int a, int b){
+/*
+Author : Lamda Richo Vanjaya Sumaryadi
+Deskripsi : Modul untuk menambahkan poin sebanyak 3 poin kepada pemain yang lebih cepat mendapatkan 2 poin.
+Initial State : -
+Final State : -
+Version dan Tanggal : 12.02.2021
+*/
 	if(a == 2 || b == 2){ //Kondisi jika player atau bot mendapatkan poin 2 terlebih dahulu		
 		if(a>b){
 			maks = a;
@@ -472,6 +564,13 @@ int BonusPoin(int a, int b){
 
 //Modul untuk menampilkan papan awal
 void FirstBoard(){
+/*
+Author : Lamda Richo Vanjaya Sumaryadi
+Deskripsi : Mengembalikan keadaan papan seperti saat pertama kali mulai permainan
+Initial State : -
+Final State : -
+Version dan Tanggal : 12.02.2021
+*/
 	square[1]='1';
 	square[2]='2';
 	square[3]='3';
@@ -485,6 +584,15 @@ void FirstBoard(){
 
 //Modul untuk mengecek kondisi jika papan sudah penuh
 int CekWin(){
+/*
+Author : Fiora Berliana Putri
+Deskripsi : Modul ini akan memeriksa apakah di dalam papan sudah terdapat bidak yang membentuk pola lurus, 
+jika sudah maka akan mengembalikan nilai 1, jika belum maka akan mengembalikan nilai -1, dan jika papan masih 
+seperti keadaan awal maka akan mengembalikan nilai 0.
+Initial State : -
+Final State :  -
+Version dan Tanggal : 04.02.2021
+*/
     if (square[1] == square[2] && square[2] == square[3])
         return 1;
         
@@ -519,6 +627,13 @@ int CekWin(){
 }
 //Modul Untuk mengembalikan kondisi AI 
 void KondisiAwalAI(){
+/*
+Author : 
+Deskripsi : Membuat AI kembali pada kondisi awal agar BotMove bisa berjalan di ronde selanjutnya
+Initial State : bag = true OR bagA = true OR bagB = true OR bagC = true OR bagD = true OR bagE = true OR bagF = true
+Final State : bag = false AND bagA = false AND bagB = false AND bagC = false AND bagD AND bagE = false AND bagF = false
+Version dan Tanggal : 14.02.2021
+*/
 	bag = false;
 	bagA = false;
 	bagB = false;
@@ -530,6 +645,13 @@ void KondisiAwalAI(){
 
 //modul Minimax
 int BotMove(int x){
+/*
+Author : Lamda Richo Vanjaya Sumaryadi
+Deskripsi : Mengisi nomor papan sesuai tingkat kecerdasan (easy, medium, hard)
+Initial State : -
+Final State : -
+Version dan Tanggal : 14.02.2021
+*/
 	int i;
 	switch(x){
 		//Level 1
@@ -776,10 +898,18 @@ int BotMove(int x){
 
 //Modul untuk menjelaskan peraturan dan tata cara permainan
 int ShowHelp(){
+/*
+Author : Fiora Berliana Putri
+Deskripsi : Menampilkan tampilan mengenai tata cara bermain dan aturan permainan ini. serta akan mengembalikan 
+nilai 1 untuk kembali ke Main Menu
+Initial State :-
+Final State : -
+Version dan Tanggal : 14.02.2021
+*/
 	char help[300];
 	FILE *fp;
 
-	system("mode 100,51");
+	system("mode 80,50");
 	fp = fopen("Help.txt","rb");
 	while(fgets(help, sizeof(help), fp)){
 		printf("%s", help);
@@ -794,11 +924,18 @@ int ShowHelp(){
 	
 //Modul untuk menampilkan halaman about
 int ShowAbout(){
+/*
+Author : Lamda Richo Vanjaya Sumaryadi
+Deskripsi : Modul untuk menampilkan mengenai kami sebagai pembuat program serta tujuan pembuatan program tic tac toe ini.
+Initial State : Tampilan layar berupa Mian Menu
+Final State : Tampilan layar berupa about
+Version dan Tanggal : 14.02.2021
+*/
 	
 	char about[300];
 	FILE *abt;
 	
-	system("mode 60,25");
+	system("mode 80,45");
 	abt = fopen("About.txt", "rb");
 	while(fgets(about, sizeof(about), abt)){
 		printf("%s", about);
