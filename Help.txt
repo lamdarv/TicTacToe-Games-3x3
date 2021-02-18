@@ -12,8 +12,8 @@ Aturan permainan dalam permainan Tic Tac Toe kami adalah sebagai berikut :
 1. Pemain memiliki bidak X dan komputer memiliki bidak O.
 2. Pemain dapat giliran jalan terlebih dahulu, dan pemain diberi kebebasan 
 untuk menempatkan bidak milik nya pada suatu kotak sesuai keinginan, kecuali 
-pada level Hard dan level medium. Pemain harus menempatkan bidaknya 
-pada kotak nomor 3.
+pada level Hard dan level medium. Pada langkah pertama, pemain harus menempatkan 
+bidaknya pada kotak nomor 3.
 3. Setelah pemain menempatkan bidak nya, kemudian giliran komputer untuk 
 menempatkan bidak nya juga, begitu seterusnya secara bergantian.
 4. Pemain dan komputer akan berusaha menempatkan bidak masing-masing dengan 

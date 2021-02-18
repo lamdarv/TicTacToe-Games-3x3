@@ -779,7 +779,7 @@ int ShowHelp(){
 	char help[300];
 	FILE *fp;
 
-	system("mode 80,45");
+	system("mode 80,50");
 	fp = fopen("Help.txt","rb");
 	while(fgets(help, sizeof(help), fp)){
 		printf("%s", help);
