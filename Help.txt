@@ -31,13 +31,29 @@ pemenang dilihat dari jumlah skor terakhir.
 
 # Cara Bermain #
 
-1. Pemain memulai permainan terlebih dahulu dengan memilih nomor (1-9) pada 
-papan untuk menempatkan bidak nya.
-2. Komputer akan mulai bermain setelah pemain.
-3. Pada level Easy, komputer akan secara acak menempatkan bidak nya. Sedangkan
-pada level Medium dan Hard, komputer diberi kecerdasan untuk menghalangi 
-jalan pemain untuk membuat pola lurus dan komputer juga diberi kecerdasan 
-untuk memenangkan permainan ini.
-4. Permainan akan berakhir saat terjadi 3 kali seri atau sudah ada player 
-yang mengumpulkan 10 poin.
-5. Setelah permainan berakhir, pemain / user dapat kembali lagi ke Main Menu.
+1. Tampilan yang pertama kali muncul saat pemain membuka game ini adalah 
+main menu, terdapat 5 pilihan disana, yaitu ; Start, Highscore, Help, 
+About, dan Exit. Pemain harus menginputkan angka 1 untuk bermain. 
+2. Setelah angka 1 diinputkan, tampilan akan berubah menjadi tampilan untuk 
+menginputkan nama pemain. pemain dapat mengisi nama apa saja dengan batasan 50 
+karakter.
+3. Sesudah mengisi nama, selanjutnya pemain diminta untuk memilih level. 
+Terdapat 3 level, yaitu ; Easy, Medium, dan Hard. Perbedaan 3 level ini adalah 
+bagaimana kecerdasan dari komputer sebagai musuh.
+  > Easy : Komputer akan secara berurutan mengecek papan 1-9 apakah sudah 
+    terisi atau belum, untuk menempatkan bidak nya. 
+  > Medium : Komputer sudah diberi kecerdasan untuk menang. Namun, masih memberi 
+    peluang kepada pemain untuk menang.
+  > Hard : Komputer diberi kecerdasan untuk menghalangi jalan pemain untuk membuat 
+    pola lurus dan komputer juga diberi kecerdasan untuk memenangkan permainan ini.
+4. Sesudah memilih level, maka papan permainan pun akan ditampilkan ke layar. 
+Pemain memiliki bidak X, sedangkan komputer memiliki bidak O.
+6. Pemain akan selalu memulai permainan terlebih dahulu dengan memilih nomor (1-9) 
+pada papan untuk menempatkan bidak nya.
+Komputer akan mulai bermain setelah pemain.
+7. Permainan akan berakhir saat terjadi 3 kali seri atau sudah ada player yang 
+mengumpulkan 10 poin.
+Setelah permainan berakhir, akan tampil ke layar berupa selamat jika pemain 
+menang atau seri. sedangkan jika kalah, maka akan tampil ke layar berupa kata maaf.
+Setelah itu, pemain dapat kembali lagi ke Main Menu dengan menginput angka 1.
+
