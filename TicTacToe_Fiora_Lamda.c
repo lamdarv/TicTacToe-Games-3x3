@@ -228,8 +228,7 @@ int ShowHighscore(){
 
 
 void PlayGame(){
-	
-	system("mode 60,25");		
+		
 	InputPlayerName(); // Input Player Name
 	SelectLevel(); //Modul Select Level
 	switch(lvl){
