@@ -329,7 +329,7 @@ int NumberChange(){
 Author : Fiora Berliana Putri dan Lamda Richo Vanjaya Sumaryadi
 Deskripsi : Modul yang digunakan untuk pergerakan dari player 1 pada permainan
 Initial State : Papan permainan masih berisi angka 1 sampai 9
-Final State : Papan permainan yang dipilih player 1 akan berubah menjadi bidak ‘X’
+Final State : Papan permainan yang dipilih player 1 akan berubah menjadi bidak Â‘XÂ’
 Version dan Tanggal : 14.02.2021
 */
 	int i,j,a, pilih;
@@ -909,7 +909,7 @@ Version dan Tanggal : 14.02.2021
 	char help[300];
 	FILE *fp;
 
-	system("mode 80,50");
+	system("mode 100,51");
 	fp = fopen("Help.txt","rb");
 	while(fgets(help, sizeof(help), fp)){
 		printf("%s", help);
@@ -935,7 +935,7 @@ Version dan Tanggal : 14.02.2021
 	char about[300];
 	FILE *abt;
 	
-	system("mode 80,45");
+	system("mode 60,25");
 	abt = fopen("About.txt", "rb");
 	while(fgets(about, sizeof(about), abt)){
 		printf("%s", about);
